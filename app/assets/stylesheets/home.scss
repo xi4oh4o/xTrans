@@ -1,0 +1,43 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.header-image {
+  height: 500px;
+  background-image: image-url("home.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.header-title {
+  padding-top: 12em;
+  h1 {
+    font-size: 8em;
+    font-weight: normal;
+    color: #fff;
+  }
+  small {
+    color: #fff;
+    font-size: 1em
+  }
+}
+
+.flow {
+  height: 500px;
+  padding-top: 12em;
+  .icon {
+    font-size: 8em;
+  }
+}
+
+.footer {
+  height: 300px;
+  background-color: #222;
+  .column {
+    padding-top: 8em;;
+    color: #ccc;
+  }
+  .icon {
+    color: #888;
+  }
+}
