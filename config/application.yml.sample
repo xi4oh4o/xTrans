@@ -1,0 +1,6 @@
+mailer_username: "YOUR_USERNAME"
+mailer_password: "YOUR_PASSWORD"
+mailer_domain: "DOMAIN"
+mailer_address: "SMTP ADDRESS"
+mailer_port: "PORT"
+
