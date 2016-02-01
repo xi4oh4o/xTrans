@@ -1,0 +1,8 @@
+.login-window {
+  background-image: image-url("random_grey_variations.png");
+  background-repeat: repeat;
+  height: 100%;
+  .column {
+    max-width: 450px;
+  }
+}
