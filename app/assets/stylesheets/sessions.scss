@@ -1,6 +1,8 @@
-.login-window {
-  background-image: image-url("random_grey_variations.png");
+body {
+  background-image: image-url("escheresque_ste.png");
   background-repeat: repeat;
+}
+.login-window {
   height: 100%;
   .column {
     max-width: 450px;

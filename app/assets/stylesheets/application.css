@@ -11,6 +11,6 @@
  * file per style scope.
  *
  *= require semantic
- *= require_tree .
+ *= require home
  *= require_self
  */
