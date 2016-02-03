@@ -7,9 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<% flash.each do |key, value| %>
+  <div class="<%=flash_class_level(key) %> transition">
+  <i class="close icon"></i>
+  <%= value %>
+</div>
+<% end %>
 <%= yield %>
+
+<%= javascript_tag do %>
+$('.message .close')
+  .on('click', function() {
+    $(this)
+      .closest('.message')
+      .transition('fade')
+    ;
+  });
+<% end %>
 
 </body>
 </html>
