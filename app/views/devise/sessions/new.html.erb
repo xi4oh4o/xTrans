@@ -1,3 +1,4 @@
+
 <div class="ui middle aligned center aligned grid login-window">
   <div class="column">
     <h2 class="ui teal image header">
@@ -7,11 +8,18 @@
       </div>
     </h2>
 
+    <% flash.each do |name, msg| %>
+      <div class="<%=flash_class_level(name) %> transition">
+      <i class="close icon"></i>
+      <%= msg %>
+    </div>
+
+    <% end %>
+
     <%= form_for(resource, :html => {:class => "ui large form" }, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <!-- <form class="ui large form"> -->
       <div class="ui stacked segment">
 
-        <div class="field">
+        <div class="field <%= valid_login_field(resource, 'email') %>">
           <div class="ui left icon input">
             <i class="user icon"></i>
             <%= f.email_field :email, :placeholder => "Email", autofocus: true %>
@@ -40,12 +48,10 @@
 
       <div class="ui error message"></div>
 
-    <!-- </form> -->
     <% end %>
 
     <div class="ui message">
       <%= render "devise/shared/links" %>
-      <!-- New to us? <a href="#">Sign Up</a> -->
     </div>
   </div>
 </div>
