@@ -13,17 +13,7 @@
   <%= msg %>
 </div>
 <% end %>
+<%= javascript_include_tag "alert" %>
 <%= yield %>
-
-<%= javascript_tag do %>
-$('.message .close')
-  .on('click', function() {
-    $(this)
-      .closest('.message')
-      .transition('fade')
-    ;
-  });
-<% end %>
-
 </body>
 </html>

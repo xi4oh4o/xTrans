@@ -8,15 +8,6 @@
 </head>
 <body>
 <%= yield %>
-
-<%= javascript_tag do %>
-$('.message .close')
-  .on('click', function() {
-    $(this)
-      .closest('.message')
-      .transition('fade')
-    ;
-  });
-<% end %>
+<%= javascript_include_tag "alert" %>
 </body>
 </html>
