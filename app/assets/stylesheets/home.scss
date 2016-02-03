@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.login-container {
+  .ui.secondary.inverted.pointing.menu {
+    position: absolute;;
+    right: 36px;
+    top: 36px;
+    z-index: 1;
+  }
+}
+
 .header-image {
   height: 500px;
   background-image: image-url("home.jpg");
