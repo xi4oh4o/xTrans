@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Xtrans</title>
+  <title>xTrans</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% flash.each do |name, msg| %>
-  <div class="<%=flash_class_level(name) %> transition">
-  <i class="close icon"></i>
-  <%= msg %>
-</div>
-<% end %>
-<%= javascript_include_tag "alert" %>
+  <div class="login-container">
+    <div class="ui secondary inverted pointing menu">
+      <% if user_signed_in? %>
+        <%= link_to "Dashboard", "#", :class => "ui inverted button" %>
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete, :class => "ui inverted button" %>
+      <% else %>
+        <%= link_to "Log in", new_user_session_url, :class => "ui inverted button" %>
+        <%= link_to "Sign Up", new_user_registration_url, :class => "ui inverted button" %>
+      <% end %>
+    </div>
+  </div>
 <%= yield %>
+<%= javascript_include_tag "alert" %>
 </body>
 </html>
