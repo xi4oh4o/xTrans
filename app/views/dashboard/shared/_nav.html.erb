@@ -1,14 +1,14 @@
 <div class="nav">
   <div class="ui fluid labeled icon three item menu">
-    <a class="item">
+    <a class="item <%= is_active?('xtrans')%>" href="<%=dashboard_xtrans_url%>">
       <i class="rocket icon"></i>
       xTrans
     </a>
-    <a class="item">
+    <a class="item <%= is_active?('xtraceroute')%>" href="<%=dashboard_xtraceroute_url%>">
       <i class="world icon"></i>
       xTraceroute
     </a>
-    <a class="item">
+    <a class="item <%= is_active?('howtouse')%>" href="<%=dashboard_howtouse_url%>">
       <i class="game icon"></i>
       How to use
     </a>
