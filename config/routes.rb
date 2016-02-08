@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   get 'dashboard/index'
+  get 'dashboard/xtrans'
+  get 'dashboard/xtraceroute'
+  get 'dashboard/howtouse'
 
   devise_for :users
   root 'home#index'
