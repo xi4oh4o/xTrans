@@ -16,4 +16,8 @@ module ApplicationHelper
     when "alert" then "ui error message"
     end
   end
+
+  def is_active?(action)
+    current_page?(controller: controller_name, action: action) ? 'active' : ''
+  end
 end
