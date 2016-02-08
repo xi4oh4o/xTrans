@@ -1,16 +1,39 @@
-<h2>Resend confirmation instructions</h2>
+<div class="ui middle aligned center aligned grid login-window">
+  <div class="column">
+    <h2 class="ui teal image header">
+      <img src=<%= asset_path 'logo.png' %> class="image">
+      <div class="content">
+        確認の指示を再送信
+      </div>
+    </h2>
 
-<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+    <% if resource.errors.any? %>
+      <div class="ui error message">
+        <%= devise_error_messages! %>
+      </div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %> 
+    <%= form_for(resource, :html => {:class => "ui large form" }, as: resource_name, url: confirmation_path(resource_name)) do |f| %>
+
+      <div class="ui stacked segment">
+
+        <div class="field <%= valid_field(resource, 'email') %>">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <%= f.email_field :email, :placeholder => "Email", autofocus: true %>
+          </div>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "重发送重置密码链接", class: "ui fluid large teal submit button" %>
+        </div>
+
+      </div>
+
+    <% end %>
+
+    <div class="ui message">
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
