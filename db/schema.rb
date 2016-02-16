@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 20160216131850) do
     t.string   "name"
     t.integer  "user_id"
     t.integer  "entrance_id"
-    t.integer  "entrance_port"
+    t.integer  "entrance_port",    default: 30000
     t.string   "target_address"
     t.integer  "destination_port"
-    t.integer  "status"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.integer  "status",           default: 0
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
   add_index "tunnels", ["entrance_id"], name: "index_tunnels_on_entrance_id", using: :btree
