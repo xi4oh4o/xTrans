@@ -4,7 +4,7 @@ class CreateEntrances < ActiveRecord::Migration
       t.string :name
       t.string :ip
       t.integer :port
-      t.integer :status
+      t.integer :status, :default => '1'
 
       t.timestamps null: false
     end

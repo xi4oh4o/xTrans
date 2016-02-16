@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20160216131850) do
     t.string   "name"
     t.string   "ip"
     t.integer  "port"
-    t.integer  "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "status",     default: 1
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "entrances", ["ip"], name: "index_entrances_on_ip", unique: true, using: :btree
