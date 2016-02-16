@@ -1,0 +1,2 @@
+module Dashboard::TunnelsHelper
+end

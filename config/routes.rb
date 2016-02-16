@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-  get 'dashboard/index'
-  get 'dashboard/xtrans'
-  get 'dashboard/xtraceroute'
-  get 'dashboard/howtouse'
 
   devise_for :users
   root 'home#index'
+
+  get 'dashboard' => 'dashboard#index'
+
+  namespace :dashboard do
+    resources :tunnels
+    get 'traceroutes' => 'traceroutes#index'
+    get 'howtouse' => 'howtouse#index'
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
