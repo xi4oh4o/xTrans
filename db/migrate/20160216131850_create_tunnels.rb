@@ -1,6 +1,7 @@
 class CreateTunnels < ActiveRecord::Migration
   def change
     create_table :tunnels do |t|
+      t.string :name
       t.integer :user_id
       t.integer :entrance_id
       t.integer :entrance_port

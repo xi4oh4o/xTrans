@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20160216131850) do
   add_index "entrances", ["name"], name: "index_entrances_on_name", unique: true, using: :btree
 
   create_table "tunnels", force: :cascade do |t|
+    t.string   "name"
     t.integer  "user_id"
     t.integer  "entrance_id"
     t.integer  "entrance_port"
