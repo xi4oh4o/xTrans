@@ -11,10 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130144725) do
+ActiveRecord::Schema.define(version: 20160216131850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "entrances", force: :cascade do |t|
+    t.string   "name"
+    t.string   "ip"
+    t.integer  "port"
+    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "entrances", ["ip"], name: "index_entrances_on_ip", unique: true, using: :btree
+  add_index "entrances", ["name"], name: "index_entrances_on_name", unique: true, using: :btree
+
+  create_table "tunnels", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "entrance_id"
+    t.integer  "entrance_port"
+    t.string   "target_address"
+    t.integer  "destination_port"
+    t.integer  "status"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "tunnels", ["entrance_id"], name: "index_tunnels_on_entrance_id", using: :btree
+  add_index "tunnels", ["entrance_port"], name: "index_tunnels_on_entrance_port", using: :btree
+  add_index "tunnels", ["user_id"], name: "index_tunnels_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
