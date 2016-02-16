@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  entrance_id: 1
+  entrance_port: 1
+  target_address: MyString
+  destination_port: 1
+  status: 1
+
+two:
+  user_id: 1
+  entrance_id: 1
+  entrance_port: 1
+  target_address: MyString
+  destination_port: 1
+  status: 1
