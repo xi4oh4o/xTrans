@@ -1,67 +1,47 @@
 <div class="panel">
   <div class="ui menu">
     <div class="item">
-      <div class="ui primary custom button"><i class="icon plus"></i> xTrans</div>
+      <div class="ui primary add-tunnel button"><i class="icon plus"></i> xTrans</div>
     </div>
     <div class="item">
-      <div class="ui button"><i class="icon help"></i> Help</div>
+      <div class="ui help-tunnel button"><i class="icon help"></i> Help</div>
     </div>
   </div>
   <div class="ui segments">
     <div class="ui segment">
-      <p>xTrans Point</p>
+      <p>xTrans Link point</p>
     </div>
     <div class="ui secondary segment">
-      <div class="ui celled list">
+      <div class="ui relaxed divided list">
+      <% @tunnels.each do |tunnel| %>
         <div class="item">
+          <i class="large rocket middle aligned icon"></i>
           <div class="content">
-            <div class="header">Snickerdoodle</div>An excellent companion </div>
+            <div class="ui small labeled input">
+              <% @entrance = Entrance.find(tunnel.entrance_id) %>
+              <div class="ui green label"><%= @entrance.name %> - <%= tunnel.name %></div>
+              <input type="text" value="<%= @entrance.domain %>">
+            </div>
+            <div class="ui small labeled input">
+              <div class="ui label">端口 </div>
+              <input type="text" value="<%= tunnel.entrance_port %>">
+            </div>
+            <div class="ui small labeled input">
+              <div class="ui label">目标地址 </div>
+              <input type="text" value="<%= tunnel.target_address %>">
+            </div>
+            <div class="ui small labeled input">
+              <div class="ui label">目标端口 </div>
+              <input type="text" value="<%= tunnel.destination_port %>">
+            </div>
+          </div>
         </div>
-        <div class="item">
-          <div class="content">
-            <div class="header">Poodle</div>A poodle, its pretty basic </div>
-        </div>
-        <div class="item">
-          <div class="content">
-            <div class="header">Paulo</div>He's also a dog </div>
-        </div>
+      <% end %>
       </div>
     </div>
   </div>
 </div>
-
-<div class="ui modal add-xtrans-form">
-  <i class="close icon"></i>
-  <div class="header">
-    创建 xTrans 链路
-  </div>
-  <div class="content">
-    <%= form_for @tunnel, url: {action: "create"}, html: {class: "ui form"} do |f| %>
-      <div class="field">
-        <label>描述</label>
-        <%= f.text_field :name, :placeholder => '输入连接点的名称' %>
-      </div>
-      <div class="field">
-        <label>选择入口地址</label>
-        <%= f.select(:entrance_id, @entrances, {}, { :class => 'ui dropdown'}) %>
-      </div>
-      <div class="field">
-        <label>目标地址</label>
-        <%= f.text_field :target_address, :placeholder => '数据最终抵达地址' %>
-      </div>
-      <div class="field">
-        <label>目标端口</label>
-        <%= f.text_field :destination_port, :placeholder => '数据最终抵达端口' %>
-      </div>
-      <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.hidden_field :entrance_port, :value => @entrance_port %>
-      <%= button_tag(type: 'submit', class: "ui positive labeled icon button") do %>
-        <i class="checkmark icon"></i> 提交
-      <% end %>
-    <% end %>
-
-  </div>
-</div>
-
+<%= render "dashboard/tunnels/popup/create_tunnel_form" %>
+<%= render "dashboard/tunnels/popup/tunnel_help" %>
 <%= javascript_include_tag "popup" %>
 
