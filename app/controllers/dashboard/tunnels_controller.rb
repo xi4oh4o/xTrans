@@ -3,11 +3,11 @@ class Dashboard::TunnelsController < ApplicationController
 
   def index
     @entrances = Entrance.all.collect {|entrance| [entrance.name, entrance.id]}
-    if Tunnel.last.nil?
-      @entrance_port = 30000
-    else
-      @entrance_port = Tunnel.last.entrance_port += 1
-    end
+
+    @entrance_port = '30000'
+    @entrance_port = Tunnel.last.entrance_port += 1 unless Tunnel.last.nil?
+
+    @tunnels = Tunnel.all
 
     @tunnel = Tunnel.new
   end
