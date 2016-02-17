@@ -2,6 +2,7 @@ class CreateEntrances < ActiveRecord::Migration
   def change
     create_table :entrances do |t|
       t.string :name
+      t.string :domain
       t.string :ip
       t.integer :port
       t.integer :status, :default => '1'

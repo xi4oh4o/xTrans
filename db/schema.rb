@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160216131850) do
 
   create_table "entrances", force: :cascade do |t|
     t.string   "name"
+    t.string   "domain"
     t.string   "ip"
     t.integer  "port"
     t.integer  "status",     default: 1
