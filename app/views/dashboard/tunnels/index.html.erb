@@ -19,7 +19,7 @@
           <div class="content">
             <div class="ui small labeled input">
               <% @entrance = Entrance.find(tunnel.entrance_id) %>
-              <div class="ui green label"><%= @entrance.name %> - <%= tunnel.name %></div>
+              <div class="ui <%= valid_tunnel_status(tunnel.id) %> label"><%= @entrance.name %> - <%= tunnel.name %></div>
               <input type="text" value="<%= @entrance.domain %>">
             </div>
             <div class="ui small labeled input">
@@ -44,4 +44,3 @@
 <%= render "dashboard/tunnels/popup/create_tunnel_form" %>
 <%= render "dashboard/tunnels/popup/tunnel_help" %>
 <%= javascript_include_tag "popup" %>
-
