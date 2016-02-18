@@ -15,6 +15,7 @@ class Dashboard::TunnelsController < ApplicationController
   def create
     @tunnel = Tunnel.new(tunnel_params)
     if @tunnel.save
+      BuildTunnelsJob.perform_later tunnel_params
       redirect_to dashboard_tunnels_url
     else
       render 'new'
