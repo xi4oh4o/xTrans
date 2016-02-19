@@ -1,11 +1,9 @@
 class Dashboard::TunnelsController < ApplicationController
+  include Dashboard::TunnelsHelper
   layout "dashboard"
 
   def index
     @entrances = Entrance.all.collect {|entrance| [entrance.name, entrance.id]}
-
-    @entrance_port = '30000'
-    @entrance_port = Tunnel.last.entrance_port += 1 unless Tunnel.last.nil?
 
     @tunnels = Tunnel.all
 
@@ -13,9 +11,13 @@ class Dashboard::TunnelsController < ApplicationController
   end
 
   def create
+    entrance_port = distr_port_by_entrance_id(tunnel_params[:entrance_id])
+    tunnel_params.store("entrance_port", entrance_port)
+
     @tunnel = Tunnel.new(tunnel_params)
+
     if @tunnel.save
-      BuildTunnelsJob.perform_later tunnel_params
+      BuildTunnelsJob.perform_later @tunnel
       redirect_to dashboard_tunnels_url
     else
       render 'new'
