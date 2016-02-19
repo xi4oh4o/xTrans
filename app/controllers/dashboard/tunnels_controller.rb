@@ -5,7 +5,7 @@ class Dashboard::TunnelsController < ApplicationController
   def index
     @entrances = Entrance.all.collect {|entrance| [entrance.name, entrance.id]}
 
-    @tunnels = Tunnel.all
+    @tunnels = Tunnel.where(user_id: current_user.id).all
 
     @tunnel = Tunnel.new
   end
