@@ -24,6 +24,14 @@ class Dashboard::TunnelsController < ApplicationController
     end
   end
 
+  def destroy
+    DestroyTunnelsJob.perform_later params[:id]
+
+    Tunnel.find(params[:id]).destroy
+    flash[:success] = "通道已被删除"
+    redirect_to dashboard_tunnels_url
+  end
+
   private
     def tunnel_params
       params.require(:tunnel).permit(:name,

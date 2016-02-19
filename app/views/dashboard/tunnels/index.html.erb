@@ -34,6 +34,9 @@
               <div class="ui label">目标端口 </div>
               <input type="text" value="<%= tunnel.destination_port %>">
             </div>
+            <%= link_to "删除",
+              dashboard_tunnel_path(tunnel), method: :delete,
+              data: { confirm: "You sure?" }, :class => "ui label small red button" %>
           </div>
         </div>
       <% end %>
