@@ -22,7 +22,6 @@
         <%= f.text_field :destination_port, :placeholder => '数据最终抵达端口' %>
       </div>
       <%= f.hidden_field :user_id, :value => current_user.id %>
-      <%= f.hidden_field :entrance_port, :placeholder => '30000', :value => @entrance_port %>
       <%= button_tag(type: 'submit', class: "ui positive labeled icon button") do %>
         <i class="checkmark icon"></i> 提交
       <% end %>
