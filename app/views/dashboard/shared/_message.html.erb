@@ -1,0 +1,7 @@
+<div class="ui warning message">
+  <i class="close icon"></i>
+  <div class="header">错误！ </div>
+  <% flash.each do |key, msg| %>
+    <%= msg %>
+  <% end %>
+</div>

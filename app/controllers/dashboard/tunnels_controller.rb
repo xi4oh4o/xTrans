@@ -23,7 +23,8 @@ class Dashboard::TunnelsController < ApplicationController
       BuildTunnelsJob.perform_later @tunnel
       redirect_to dashboard_tunnels_url
     else
-      render 'new'
+      flash[:error] = "表单存在拼写错误"
+      redirect_to dashboard_tunnels_url
     end
   end
 
