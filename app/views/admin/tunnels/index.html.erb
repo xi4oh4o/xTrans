@@ -1,0 +1,41 @@
+<div class="panel">
+  <% if flash[:error].present? %>
+    <%= render "dashboard/shared/message" %>
+  <% end %>
+  <div class="ui segments">
+    <div class="ui segment">
+      <p>All the xTrans Link point</p>
+    </div>
+    <div class="ui secondary segment">
+      <div class="ui relaxed divided list">
+      <% @tunnels.each do |tunnel| %>
+        <div class="item">
+          <i class="large rocket middle aligned icon"></i>
+          <div class="content">
+            <div class="ui small labeled input">
+              <% @entrance = Entrance.find(tunnel.entrance_id) %>
+              <div class="ui <%= valid_tunnel_status(tunnel.id) %> label"><%= @entrance.name %> - <%= tunnel.name %></div>
+              <input type="text" value="<%= @entrance.domain %>">
+            </div>
+            <div class="ui small labeled input">
+              <div class="ui label">端口 </div>
+              <input type="text" value="<%= tunnel.entrance_port %>">
+            </div>
+            <div class="ui small labeled input">
+              <div class="ui label">目标地址 </div>
+              <input type="text" value="<%= tunnel.target_address %>">
+            </div>
+            <div class="ui small labeled input">
+              <div class="ui label">目标端口 </div>
+              <input type="text" value="<%= tunnel.destination_port %>">
+            </div>
+            <%= link_to "删除",
+              dashboard_tunnel_path(tunnel), method: :delete,
+              data: { confirm: "You sure?" }, :class => "ui label small red button" %>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

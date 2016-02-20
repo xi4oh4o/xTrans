@@ -1,0 +1,43 @@
+<div class="panel">
+  <div class="ui menu">
+    <div class="item">
+      <div class="ui primary add-tunnel button"><i class="icon plus"></i> Entrance</div>
+    </div>
+  </div>
+  <% if flash[:error].present? %>
+    <%= render "dashboard/shared/message" %>
+  <% end %>
+  <div class="ui segments">
+    <div class="ui segment">
+      <p>Entrance Servers</p>
+    </div>
+    <div class="ui secondary segment">
+      <div class="ui relaxed divided list">
+      <% @entrances.each do |entrance| %>
+        <div class="item">
+          <i class="large rocket middle aligned icon"></i>
+          <div class="content">
+            <div class="ui small labeled input">
+              <div class="ui green label"><%= entrance.name %></div>
+              <input type="text" value="<%= entrance.domain %>">
+            </div>
+            <div class="ui small labeled input">
+              <div class="ui label">IP </div>
+              <input type="text" value="<%= entrance.ip %>">
+            </div>
+            <div class="ui small labeled input">
+              <div class="ui label">端口 </div>
+              <input type="text" value="<%= entrance.port %>">
+            </div>
+            <%= link_to "删除",
+              admin_entrance_path(entrance), method: :delete,
+              data: { confirm: "You sure?" }, :class => "ui label small red button" %>
+          </div>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "admin/entrances/popup/create_entrance_form" %>
+<%= javascript_include_tag "popup" %>
