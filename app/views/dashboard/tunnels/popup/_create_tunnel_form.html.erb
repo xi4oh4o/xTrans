@@ -7,7 +7,7 @@
     <%= form_for @tunnel, url: {action: "create"}, html: {class: "ui form"} do |f| %>
       <div class="field">
         <label>描述</label>
-        <%= f.text_field :name, :placeholder => '输入连接点的名称' %>
+        <%= f.text_field :name, :required => true, :placeholder => '输入连接点的名称' %>
       </div>
       <div class="field">
         <label>选择入口地址</label>
@@ -15,11 +15,11 @@
       </div>
       <div class="field">
         <label>目标地址</label>
-        <%= f.text_field :target_address, :placeholder => '数据最终抵达地址' %>
+        <%= f.text_field :target_address, :required => true, :placeholder => '数据最终抵达IP地址' %>
       </div>
       <div class="field">
         <label>目标端口</label>
-        <%= f.text_field :destination_port, :placeholder => '数据最终抵达端口' %>
+        <%= f.text_field :destination_port, :required => true, :placeholder => '数据最终抵达端口' %>
       </div>
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <%= button_tag(type: 'submit', class: "ui positive labeled icon button") do %>
