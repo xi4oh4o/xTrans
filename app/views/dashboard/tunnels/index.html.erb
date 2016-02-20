@@ -7,7 +7,9 @@
       <div class="ui help-tunnel button"><i class="icon help"></i> Help</div>
     </div>
   </div>
-  <%= render "dashboard/shared/message" %>
+  <% if flash[:error].present? %>
+    <%= render "dashboard/shared/message" %>
+  <% end %>
   <div class="ui segments">
     <div class="ui segment">
       <p>xTrans Link point</p>

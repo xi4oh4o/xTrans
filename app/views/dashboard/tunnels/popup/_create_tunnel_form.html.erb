@@ -15,7 +15,9 @@
       </div>
       <div class="field">
         <label>目标地址</label>
-        <%= f.text_field :target_address, :required => true, :placeholder => '数据最终抵达IP地址' %>
+        <%= f.text_field :target_address, :required => true,
+          :pattern => '((^|\.)((25[0-5])|(2[0-4]\d)|(1\d\d)|([1-9]?\d))){4}$',
+          :placeholder => '数据最终抵达IP地址' %>
       </div>
       <div class="field">
         <label>目标端口</label>
