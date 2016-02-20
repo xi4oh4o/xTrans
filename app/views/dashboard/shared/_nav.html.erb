@@ -13,9 +13,16 @@
       <i class="world icon"></i>
       xTraceroute
     </a>
-    <a class="item <%= is_active?('index', 'dashboard/howtouse')%>" href="<%=dashboard_howtouse_url%>">
-      <i class="game icon"></i>
-      How to use
-    </a>
+    <% if current_user.id == 1 %>
+      <a class="item <%= is_active?('index', 'dashboard/howtouse')%>" href="<%=admin_entrances_url%>">
+        <i class="dashboard icon"></i>
+        Admin
+      </a>
+    <% else %>
+      <a class="item <%= is_active?('index', 'dashboard/howtouse')%>" href="<%=dashboard_howtouse_url%>">
+        <i class="game icon"></i>
+        How to use
+      </a>
+    <% end %>
   </div>
 </div>
