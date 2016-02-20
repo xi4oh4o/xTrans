@@ -5,6 +5,11 @@ Rails.application.routes.draw do
 
   get 'dashboard' => 'dashboard#index'
 
+  namespace :admin do
+    resources :entrances
+    resources :tunnels
+  end
+
   namespace :dashboard do
     resources :tunnels
     get 'traceroutes' => 'traceroutes#index'
