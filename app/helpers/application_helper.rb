@@ -20,4 +20,5 @@ module ApplicationHelper
   def is_active?(action, controller_name)
     current_page?(controller: controller_name, action: action) ? 'active' : ''
   end
+
 end

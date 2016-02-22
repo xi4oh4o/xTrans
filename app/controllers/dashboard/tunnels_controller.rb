@@ -1,4 +1,5 @@
 class Dashboard::TunnelsController < ApplicationController
+  before_action :authenticate_user!
   before_action :logged_in_user, only: [:index, :create, :destroy]
 
   include Dashboard::TunnelsHelper
