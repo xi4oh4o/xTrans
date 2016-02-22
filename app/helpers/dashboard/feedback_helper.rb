@@ -1,0 +1,2 @@
+module Dashboard::FeedbackHelper
+end
