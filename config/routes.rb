@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   namespace :dashboard do
     resources :tunnels
     get 'traceroutes' => 'traceroutes#index'
-    get 'howtouse' => 'howtouse#index'
+    get 'feedback' => 'feedback#index'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
