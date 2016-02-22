@@ -12,5 +12,6 @@
  *
  *= require semantic
  *= require dashboard
+ *= require dashboard/tunnels
  *= require_self
  */
