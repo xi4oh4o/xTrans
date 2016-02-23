@@ -85,6 +85,8 @@ GEM
       rake
     mina-puma (0.2.0)
       mina
+    mina-sidekiq (0.3.1)
+      mina
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
@@ -187,6 +189,7 @@ DEPENDENCIES
   jquery-rails
   mina
   mina-puma
+  mina-sidekiq
   pg
   puma
   rails (= 4.2.5.1)
