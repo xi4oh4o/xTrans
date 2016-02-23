@@ -18,7 +18,7 @@ class BuildTunnelsJob < ActiveJob::Base
                    to_ip_port)
 
       require 'sshkit'
-      include SSHKit::DSL
+      require 'sshkit/dsl'
       begin
         on "root@#{server_ip}:#{server_port}" do |host|
           execute ("iptables -t nat -A PREROUTING -p tcp -i eth0 \
