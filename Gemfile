@@ -36,6 +36,8 @@ gem 'puma'
 
 gem 'mina'
 
+gem 'mina-puma', :require => false
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
