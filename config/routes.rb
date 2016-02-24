@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :entrances
     resources :tunnels
+    resources :feedbacks
   end
 
   namespace :dashboard do
