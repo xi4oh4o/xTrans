@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :tunnels
     get 'traceroutes' => 'traceroutes#index'
     get 'feedback' => 'feedback#index'
+    post 'feedback' => 'feedback#create'
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160216131850) do
+ActiveRecord::Schema.define(version: 20160224133009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20160216131850) do
 
   add_index "entrances", ["ip"], name: "index_entrances_on_ip", unique: true, using: :btree
   add_index "entrances", ["name"], name: "index_entrances_on_name", unique: true, using: :btree
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.string   "username"
+    t.integer  "user_id"
+    t.text     "content"
+    t.integer  "status",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "tunnels", force: :cascade do |t|
     t.string   "name"

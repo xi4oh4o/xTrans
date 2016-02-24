@@ -4,7 +4,24 @@
       <p>Feedback</p>
     </div>
     <div class="ui secondary segment">
-      <h1><i class="settings icon"></i>工事中</h1>
+      <div class="ui">
+        <div class="content">
+          <%= form_for @feedback, url: {action: "create"}, html: {class: "ui form"} do |f| %>
+            <div class="field">
+              <label>昵称</label>
+              <%= f.text_field :username, :required => true, :placeholder => '称呼' %>
+            </div>
+            <div class="field">
+              <label>问题描述</label>
+              <%= f.text_area :content, :required => true, :placeholder => '您的反馈非常重要' %>
+            </div>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <%= button_tag(type: 'submit', class: "ui positive labeled icon button", data: { confirm: "非常感谢您的反馈，稍后会以邮件形式与您跟进。" }) do %>
+              <i class="checkmark icon"></i> 提交
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
