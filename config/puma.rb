@@ -2,8 +2,8 @@
 
 #rails的运行环境
 environment 'production'
-threads 2, 32
-workers 2
+threads 2, 8
+workers 1
 
 #项目名
 app_name = "web"
