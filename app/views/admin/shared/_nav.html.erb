@@ -1,5 +1,5 @@
 <div class="nav">
-  <div class="ui fluid labeled icon three item menu">
+  <div class="ui fluid labeled icon four item menu">
     <a class="item" href="<%= dashboard_tunnels_url %>">
       <i class="home icon"></i>
       xTrans
@@ -11,6 +11,10 @@
     <a class="item <%= is_active?('index', 'admin/tunnels') %>" href="<%= admin_tunnels_url %>">
       <i class="rocket icon"></i>
       Tunnels
+    </a>
+    <a class="item <%= is_active?('index', 'admin/feedbacks') %>" href="<%= admin_feedbacks_url %>">
+      <i class="comment icon"></i>
+      Feedbacks
     </a>
   </div>
 </div>
