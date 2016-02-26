@@ -11,8 +11,8 @@ require "mina_sidekiq/tasks"
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :domain, 'root@104.131.168.51'
-set :deploy_to, '/home/xtrans/web'
+set :domain, 'root@159.203.72.93'
+set :deploy_to, '/home/xtrans'
 set :repository, 'git@github.com:xi4oh4o/xTrans.git'
 set :branch, 'master'
 set :sidekiq_processes, 1

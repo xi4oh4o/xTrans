@@ -6,9 +6,9 @@ threads 2, 8
 workers 1
 
 #项目名
-app_name = "web"
+app_name = "xtrans"
 #项目路径
-application_path = "/home/xtrans/#{app_name}"
+application_path = "/home/#{app_name}"
 #这里一定要配置为项目路径下地current
 directory "#{application_path}/current"
 
