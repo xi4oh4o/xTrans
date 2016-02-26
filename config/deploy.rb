@@ -15,8 +15,8 @@ set :domain, 'root@159.203.72.93'
 set :deploy_to, '/home/xtrans'
 set :repository, 'git@github.com:xi4oh4o/xTrans.git'
 set :branch, 'master'
-set :sidekiq_processes, 1
-set :sidekiq_concurrency, 5
+set :sidekiq_processes, 2
+set :sidekiq_concurrency, 6
 # For system-wide RVM install.
 #   set :rvm_path, '/usr/local/rvm/bin/rvm'
 
@@ -46,7 +46,9 @@ end
 # all releases.
 task :setup => :environment do
   queue! %[mkdir -p "#{deploy_to}/#{shared_path}/log"]
+  queue! %[mkdir -p "#{deploy_to}/#{shared_path}/pids"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/log"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/pids"]
 
   queue! %[mkdir -p "#{deploy_to}/#{shared_path}/config"]
   queue! %[chmod g+rx,u+rwx "#{deploy_to}/#{shared_path}/config"]

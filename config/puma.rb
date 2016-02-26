@@ -2,8 +2,8 @@
 
 #rails的运行环境
 environment 'production'
-threads 2, 8
-workers 1
+threads 4, 16
+workers 3
 
 #项目名
 app_name = "xtrans"
